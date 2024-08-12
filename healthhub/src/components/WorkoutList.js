@@ -1,32 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import api from '../api';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-function WorkoutList() {
+const Workouts = () => {
     const [workouts, setWorkouts] = useState([]);
 
     useEffect(() => {
-        api.get('workouts/')
+        // Fetch workouts from the Django backend
+        axios.get('http://localhost:8000/api/workouts/')
             .then(response => {
                 setWorkouts(response.data);
             })
             .catch(error => {
-                console.error('There was an error fetching the workouts!', error);
+                console.error("There was an error fetching the workouts!", error);
             });
     }, []);
 
     return (
         <div>
-            <h1>Workout Programs</h1>
+            <h1>Workouts</h1>
             <ul>
                 {workouts.map(workout => (
-                    <li key={workout.id}>
-                        <h2>{workout.title}</h2>
-                        <p>{workout.description}</p>
-                    </li>
+                    <li key={workout.id}>{workout.title}</li>
                 ))}
             </ul>
         </div>
     );
-}
+};
 
-export default WorkoutList;
+export default Workouts;
