@@ -16,6 +16,12 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+
+  "engines": {
+    "node": "20.x",
+    "npm": "8.x"
+  },
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -41,6 +47,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "serve": "^14.2.3"
   }
 }
